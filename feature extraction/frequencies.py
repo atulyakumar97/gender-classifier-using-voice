@@ -6,7 +6,8 @@ def get_frequencies(y,sr):
     '''Spectral centroid
     Each frame of a magnitude spectrogram is normalized and treated as a distribution over frequency bins,
     from which the mean (centroid) is extracted per frame.'''
-    frequencies=librosa.feature.spectral_centroid(y=y, sr=sr)
+    frequencies=librosa.feature.spectral_centroid(y=y, sr=sr,freq=None,n_fft=2048)
+    print(np.shape(frequencies))
     return frequencies
     
 def get_features(frequencies):
@@ -21,3 +22,11 @@ def get_features(frequencies):
     iqr      = q75 - q25
     return([mean, median, mode, std, minfreq, peak, q25, q75, iqr])
 
+path_male = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Male\\";
+path_female = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Female\\";
+
+y, sr = librosa.load(path_male+'00002.wav')
+male=get_features(get_frequencies(y,sr))
+
+y, sr = librosa.load(path_female+'00002.wav')
+female=get_features(get_frequencies(y,sr))

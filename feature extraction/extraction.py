@@ -1,14 +1,14 @@
 import pandas as pd
 import os
 from pitch import get_pitch
-from frequencies import get_frequencies,get_features
+#from frequencies import get_frequencies,get_features
 from mfcc import get_mfcc
 import librosa
 import  scipy.io.wavfile as wav
 
 path_male = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Male\\";
 path_female = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Female\\";
-freq_col=['pitch','mean','median', 'mode', 'std', 'minfreq', 'peak', 'q25', 'q75', 'iqr']
+freq_col=['pitch']
 mfcc_col=['mfcc'+str(i+1) for i in list(range(110))]
 col = freq_col+mfcc_col+['label']
 
@@ -24,13 +24,15 @@ def main(path,gender):
         print(wav_file)
         
         pitch=get_pitch(fs,x)
-        frequencies=get_frequencies(y,sr)
-        freq_features=get_features(frequencies)
+        #frequencies=get_frequencies(y,sr)
+        #freq_features=get_features(frequencies)
         mfcc_features=get_mfcc(y,sr)
         
-        write_features=[pitch]+freq_features+mfcc_features.tolist()[0]+[gender]
+        #write_features=[pitch]+freq_features+mfcc_features.tolist()[0]+[gender]
+        write_features=[pitch]+mfcc_features.tolist()[0]+[gender]
         df = df.append([write_features])
-        #break #remove break to execute for all files
+        #if wav_file=='00001.wav':
+            #break #remove break to execute for all files
     df.columns = col
     df.to_csv(gender+'_features.csv')
 
