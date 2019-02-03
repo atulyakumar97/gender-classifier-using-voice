@@ -6,27 +6,38 @@ import librosa
 
 path_male = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Male\\";
 path_female = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Female\\";
+freq_col=['mean','median', 'mode', 'std', 'minfreq', 'peak', 'q25', 'q75', 'iqr']
+mfcc_col=['mfcc'+str(i+1) for i in list(range(110))]
+col = freq_col+mfcc_col+['label']
 
-def main():
+def main(path,gender):
     df = pd.DataFrame()
-    directory=os.listdir(path_male)
+    print('Extracting features for '+gender)
+   
+    directory=os.listdir(path)
     for wav_file in directory:
         write_features=[]
-        y, sr = librosa.load(path_male+wav_file)
+        y, sr = librosa.load(path+wav_file)
         print(wav_file)
         
         frequencies=get_frequencies(y,sr)
         freq_features=get_features(frequencies)
         mfcc_features=get_mfcc(y,sr)
         
-        print(freq_features)
-        print(mfcc_features)
-        
-        write_features=freq_features+mfcc_features.tolist()[0]
-        df = df.append([write_features], ignore_index=True)
+        write_features=freq_features+mfcc_features.tolist()[0]+[gender]
+        df = df.append([write_features])
         break #remove break to execute for all files
-    
-    df.to_csv('features.csv')
-    return(df)
+    df.columns = col
+    df.to_csv(gender+'_features.csv')
 
-main()
+main(path_male,'male')
+main(path_female,'female')
+
+maledf=pd.read_csv('male_features.csv')
+maledf=maledf.iloc[:, 1:] #removing extra row index
+
+femaledf=pd.read_csv('female_features.csv')
+femaledf=femaledf.iloc[:, 1:] #removing extra row index
+
+finaldf=maledf.append(femaledf)
+finaldf.to_csv('features.csv')
