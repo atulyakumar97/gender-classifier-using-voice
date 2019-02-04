@@ -23,7 +23,7 @@ y = labelencoder_y.fit_transform(y.ravel())
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.02, random_state = 0,shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.02, random_state = None,shuffle=True)
 
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
@@ -33,7 +33,7 @@ X_test = sc.transform(X_test)
 
 # Fitting Kernel SVM to the Training set
 from sklearn.svm import SVC
-classifier = SVC(kernel = 'rbf', random_state = None,max_iter=10000,class_weight='balanced')
+classifier = SVC(C=3,gamma=0.01,kernel = 'rbf', random_state = None,max_iter=10000,class_weight='balanced')
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
@@ -46,5 +46,13 @@ print(cm)
 
 # And find the final test error
 correct_pred=sum(y_pred == y_test)
-print(correct_pred)
-print('accuracy = ', correct_pred*100/(y_pred.shape[0]))
+print(correct_pred, ' classified correctly out of ',np.shape(y_test)[0])
+#print('accuracy = ', correct_pred*100/(y_pred.shape[0]))
+
+print('Train set accuracy = ',classifier.score(X_train,y_train)*100)
+print('Test set accuracy = ',classifier.score(X_test,y_test)*100)
+
+from sklearn.model_selection import cross_val_score
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
+print(accuracies.mean())
+print(accuracies.std())
