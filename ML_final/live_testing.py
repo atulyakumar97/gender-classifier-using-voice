@@ -18,7 +18,7 @@ import pandas as pd
 import numpy as np
 
 #Importing the dataset
-original_dataset=pd.read_csv('C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\feature extraction\\features.csv')
+original_dataset=pd.read_csv('features.csv')
 test_dataset = pd.read_csv('recorded_audio_features.csv')
 
 original_dataset=original_dataset.iloc[:,1:-1]
