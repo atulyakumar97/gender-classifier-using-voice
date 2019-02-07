@@ -48,8 +48,10 @@ correct_pred=sum(y_pred == y_test)
 print(correct_pred, ' classified correctly out of ',np.shape(y_test)[0])
 #print('accuracy = ', correct_pred*100/(y_pred.shape[0]))
 
+
+test_score=classifier.score(X_test,y_test)
 print('Train set accuracy = ',classifier.score(X_train,y_train)*100)
-print('Test set accuracy = ',classifier.score(X_test,y_test)*100)
+print('Test set accuracy = ',test_score*100)
 
 #from sklearn.model_selection import cross_val_score
 #accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
@@ -85,3 +87,18 @@ y_recorded_pred = classifier.predict(X_recorded_test)
 # And find the final test error
 correct_pred=sum(y_recorded_pred == y_recorded_test)
 print(correct_pred, ' classified correctly out of ',np.shape(y_recorded_test)[0],' recorded files')
+
+#--------------------------------------Save Trained Model --------------------------------#
+
+import pickle
+
+# save the model to disk
+filename = 'finalised_model.sav'
+pickle.dump(classifier, open(filename, 'wb'))
+ 
+# some time later...
+ 
+# load the model from disk
+loaded_classifier = pickle.load(open(filename, 'rb'))
+result = loaded_classifier.score(X_test, y_test)
+print(result)
