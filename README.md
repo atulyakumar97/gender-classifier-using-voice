@@ -15,5 +15,5 @@ Total repository size = 33mb (approx)
 
 ### Steps
  1. Download the full <b>"ML_final"</b> folder only at a specific path (preferred C:\)
- 2. Open 'live_testing.py' and set the path to your downloaded folder (path="C:\\ML_final\\") 
+ 2. Open 'live_testing.py' and set the path variable to your downloaded folder (path="C:\\ML_final\\") 
  3. Run the 'live_testing.py' file and test your results.
