@@ -6,8 +6,8 @@ from mfcc import get_mfcc
 import librosa
 import  scipy.io.wavfile as wav
 
-path_male = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Male\\";
-path_female = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Female\\";
+path_male = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Data Preprocessing\\Male\\";
+path_female = "C:\\Users\\Atulya\\Documents\\GitHub\\gender-classifier-using-voice\\Data Preprocessing\\Female\\";
 freq_col=['pitch']
 mfcc_col=['mfcc'+str(i+1) for i in list(range(110))]
 col = freq_col+mfcc_col+['label']

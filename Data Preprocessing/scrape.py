@@ -20,7 +20,7 @@ def download_file(from_url, local_path):
 def batch_download(matches):
     for match in matches:
         file_url = os.path.join(URL, match['href'])
-        file_local = os.path.join('raw', match['href'])
+        file_local = os.path.join('raw_zipped', match['href'])
         download_file(file_url, file_local)
 
 def main():
@@ -29,7 +29,7 @@ def main():
     soup = BeautifulSoup(response.text, 'html.parser')
     matches = soup.find_all('a', attrs={"href": re.compile("tgz")})
 
-    if not os.path.exists('raw'): os.mkdir('raw')
+    if not os.path.exists('raw_zipped'): os.mkdir('raw_zipped')
     #raw_folder = os.path.join(__file__, 'raw')
     #raw_folder = os.path.join('.', 'raw')
 

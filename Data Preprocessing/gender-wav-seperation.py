@@ -3,7 +3,9 @@ import time
 import shutil
 import random
 
-x='C:/Users/Atulya/Documents/GitHub/gender-classifier'
+#Note : Male and Female should already be created at path x
+
+x='C:/Users/Atulya/Documents/GitHub/gender-classifier-using-voice/Data Preprocessing'
 address=x+'/raw'
 j=0
 print(len(os.listdir(address)))

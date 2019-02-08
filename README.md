@@ -1,6 +1,8 @@
 # Gender-Classifier-Using-Voice
 
-audio source = http://www.repository.voxforge1.org/downloads/SpeechCorpus/Trunk/Audio/Main/16kHz_16bit/
+audio source (10.4gb) = http://www.repository.voxforge1.org/downloads/SpeechCorpus/Trunk/Audio/Main/16kHz_16bit/
+
+
 
 ### Packages required - (pip install)
  1. librosa
