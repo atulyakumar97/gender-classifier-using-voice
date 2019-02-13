@@ -28,13 +28,14 @@ appended_dataset=original_dataset.append(test_dataset)
 
 X = appended_dataset.iloc[:,:].values
 
-print('Loaded Test Case')
 #Taking care of missing data
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values=0, strategy='most_frequent')          
 imputer = imputer.fit(X[:,:])
 X[:,:] = imputer.transform(X[:,:])
+print('Loaded Test Case')
 
+print('Feature Scaling')
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()

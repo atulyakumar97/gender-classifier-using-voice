@@ -14,4 +14,7 @@ test size = 159
 	<tr><td>naive_bayes</td><td>59.11 %</td><td>72.32 %</td></tr>
 	<tr><td>decision_tree</td><td>77.35 %</td><td>84.90 %</td></tr>
 	<tr><td>random_forest</td><td>83.38 %</td><td>85.75 %</td></tr>
+	<tr><td>neural_network</td><td>65 %</td><td>70 %</td></tr>
 </table>
+<br><br>
+Note : Neural Network input was raw audio signal. wave file was read and directly exported to a csv file, each row corresponding to single audio file.
