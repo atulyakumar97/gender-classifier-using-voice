@@ -17,8 +17,9 @@ This has been created for distributing and testing on different languages,accent
  7. numpy
  8. wave
  9. keras
- 10. pitch
-
+<br>
+You can now also intall and use pitch as library function. *pip install pitch* .<br>
+<br>
 ### Steps
  1. Download the full <b>"ML_final"</b> folder only, at a specific path (preferred C:\\ )
  2. Open 'svm.py' or 'neural_network.py' and set the path variable to your downloaded folder (path="C:\\\\ML_final\\\\") 
@@ -29,7 +30,7 @@ This has been created for distributing and testing on different languages,accent
 [Viren Baria](https://github.com/bumblebee26)<br>
 [Bhargav Desai](https://github.com/algoromeo)<br>
 [Sanjeet Krishna](https://github.com/Sanjeet19)<br>
-[Parth Mehta](https://github.com/parthmehta15)  [ Pitch Code as a library -> [pip install pitch](https://pypi.org/project/pitch/)   ]<br>  
+[Parth Mehta](https://github.com/parthmehta15)  ![PyPI](https://img.shields.io/pypi/v/pitch.svg?color=green&label=pitch)
 
 ### License and copyright
 
