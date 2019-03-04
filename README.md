@@ -30,7 +30,7 @@ You can now also intall and use pitch as library function. *pip install pitch* .
 [Viren Baria](https://github.com/bumblebee26)<br>
 [Bhargav Desai](https://github.com/algoromeo)<br>
 [Sanjeet Krishna](https://github.com/Sanjeet19)<br>
-[Parth Mehta](https://github.com/parthmehta15)  ![PyPI](https://img.shields.io/pypi/v/pitch.svg?color=green&label=pitch)
+[Parth Mehta](https://github.com/parthmehta15)    [![PyPI](https://img.shields.io/pypi/v/pitch.svg?color=green&label=pitch)](https://pypi.org/project/pitch/)
 
 ### License and copyright
 
