@@ -25,7 +25,7 @@ for audiofile in os.listdir(path+'recorded_audio\\'):
 x_in = np.array(g)
 x_in.shape
 x_in = x_in.reshape(x_in.shape[0],200,200)
-result = Model.predict(x_in)
+#result = Model.predict(x_in)
 m=0
 for r in result:
     if r>0.5:

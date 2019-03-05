@@ -1,6 +1,12 @@
 import matplotlib.pyplot as plt
 plt.ioff()
 import pickle
+import time
+import warnings
+warnings.filterwarnings("ignore")
+
+print('Recording begins in 3 seconds ...')
+time.sleep(3)
 
 # load the model from disk
 loaded_classifier = pickle.load(open('finalised_model.sav', 'rb'))
